@@ -1,0 +1,53 @@
+﻿@model PortfolioProject.Models.EducationViewModel
+
+@{
+    ViewData["Title"] = "AddEducation";
+    Layout = "~/Views/Shared/_NewAdminLayout.cshtml";
+}
+
+<div class="col-12 grid-margin stretch-card">
+                <div class="card">
+                  <div class="card-body">
+
+
+
+@using (Html.BeginForm("AddEducation","Education",FormMethod.Post, new{ enctype = "multipart/form-data" })){
+
+    
+    
+                                    
+                    <div class="form-group">
+                      <label>Okul Adı</label>
+                      @Html.TextBoxFor(m=>m.EducationTitle,new {@class="form-control"}) 
+                      @Html.ValidationMessageFor(m=>m.EducationTitle,"",new {@class="text-danger"})
+                    </div>
+                
+
+                       <div class="form-group">
+                      <label>Okul Açıklaması</label>
+                                          
+                       @Html.TextAreaFor(m=>m.EducationDescription,6,3,new { @class="form-control"})
+                       @Html.ValidationMessageFor(m=>m.EducationDescription,"",new { @class="text-danger"})
+                    </div>
+
+                    
+                                     
+                    <div class="form-group">
+                      <label>Resim Seç</label>
+                       @Html.TextBoxFor(m => m.Image, new { type = "file" })
+                       @Html.ValidationMessageFor(m => m.Image,"",new {@class="text-danger"})
+            
+                    </div>
+             
+
+                      <button  class="btn btn-outline-success">Kaydet</button>
+            
+
+ }
+
+                    </div>
+                </div>
+              </div>
+
+
+

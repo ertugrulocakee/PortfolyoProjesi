@@ -1,0 +1,54 @@
+﻿@using EntityLayer.Concrete
+@model List<BlogPost>
+
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_NewAdminLayout.cshtml";
+}
+
+
+              <div class="col-lg-12 grid-margin stretch-card">
+                <div class="card">
+                  <div class="card-body">
+                    <h4 class="card-title">Blog Paylaşımları</h4>
+                   
+                    <div class="table-responsive">
+                      <table class="table">
+                        <thead>
+                          <tr>
+                            <th>#</th>
+                            <th>Yazar</th>
+                            <th>Başlık</th>
+                            <th>Konu</th>
+                            <th>Tarih</th>
+                            <th>Sil</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                        
+                         @foreach (var item in Model)
+                         { 
+                            
+                         <tr>
+                            <td>@item.id</td>
+                            <td>@item.WriterName</td>
+                            <td>@item.Header</td>
+                            <td>@item.Title</td>
+                            <td>@(((DateTime)item.Date).ToString("dd-MMM-yyyy"))</td>
+                            <td><a href="/BlogPost/DeleteBlogPost/@item.id" class="btn btn-outline-danger">Sil</a></td>
+                            
+                          </tr>
+
+                         }
+                          
+                        </tbody>
+                      </table>
+                      <a href="/BlogPost/AddBlogPost/" class="btn btn-outline-info">Yeni Blog Yazısı Ekle</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+ 
+            
+

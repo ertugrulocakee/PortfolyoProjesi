@@ -1,0 +1,56 @@
+﻿@model PortfolioProject.Models.PortfolioViewModel
+
+@{
+    ViewData["Title"] = "AddPortfolio";
+    Layout = "~/Views/Shared/_NewAdminLayout.cshtml";
+}
+
+
+ <div class="col-12 grid-margin stretch-card">
+       <div class="card">
+            <div class="card-body">
+
+@using (Html.BeginForm("AddPortfolio","Portfolio",FormMethod.Post, new{ enctype = "multipart/form-data" })){
+
+    
+    <br />
+    <label>Proje Adı</label>   
+    @Html.TextBoxFor(x=>x.Name,new {@class="form-control"})
+    @Html.ValidationMessageFor(x=>x.Name,"",new {@class="text-danger"})
+    <br />
+    <label>Proje Görseli</label>   
+     @Html.TextBoxFor(m => m.Image, new { type = "file" })
+    @Html.ValidationMessageFor(x=>x.Image,"",new {@class="text-danger"})
+    <br />
+    <label>Büyük Görsel</label>
+    @Html.TextBoxFor(m => m.BigImage, new { type = "file" })
+    @Html.ValidationMessageFor(x=>x.BigImage,"",new {@class="text-danger"})
+    <br />
+    <label>Platform Görseli</label>
+    @Html.TextBoxFor(m => m.PlatformImage, new { type = "file" })
+    @Html.ValidationMessageFor(x=>x.PlatformImage,"",new {@class="text-danger"})
+    
+    <br/>
+    <label>Proje URL</label>
+    @Html.TextBoxFor(x=>x.ProjectURL,new {@class="form-control"})
+    @Html.ValidationMessageFor(x=>x.ProjectURL,"",new {@class="text-danger"})
+    <br/>
+    <label>Ücret</label>
+    @Html.TextBoxFor(x=>x.Price,new {@class="form-control"})
+    @Html.ValidationMessageFor(x=>x.Price,"",new {@class="text-danger"})
+    <br/>
+    <label>Tamamlanma Oranı</label>
+    @Html.TextBoxFor(x=>x.Value,new {@class="form-control"})
+    @Html.ValidationMessageFor(x=>x.Value,"",new {@class="text-danger"})
+    <br/>
+
+
+    <button class="btn btn-outline-success">Kaydet</button>
+
+}
+
+                     </div>
+               </div>
+        </div>
+
+

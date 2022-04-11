@@ -1,0 +1,48 @@
+﻿@model EntityLayer.Concrete.Skills
+
+
+@{
+    ViewData["Title"] = "UpdateSkill";
+    Layout = "~/Views/Shared/_NewAdminLayout.cshtml";
+}
+
+@if (ViewBag.Message != null)
+{
+    <script type="text/javascript">
+        window.onload = function () {
+            alert('@ViewBag.Message');
+        };
+    </script>
+}  
+
+@using (Html.BeginForm("UpdateSkill","Skills",FormMethod.Post)){
+
+    <div class="col-12 grid-margin stretch-card">
+                <div class="card">
+                  <div class="card-body">
+                    
+                    
+                    <form class="forms-sample" method="post">
+                      <div class="form-group"> 
+                       @Html.HiddenFor(x=>x.SkillID)
+                      </div>
+                      <div class="form-group">
+                        <label>Yetenek</label>
+                        @Html.TextBoxFor(x=>x.Title,new {@class="form-control"})
+                        @Html.ValidationMessageFor(x=>x.Title,"",new {@class="text-danger"})
+                      </div>
+                      <div class="form-group">
+                        <label>Değer</label>
+                        @Html.TextBoxFor(x=>x.Value,new {@class="form-control"})
+                        @Html.ValidationMessageFor(x=>x.Value,"",new {@class="text-danger"})
+                      </div>
+                      
+                      <button class="btn btn-outline-success">Kaydet</button>
+                 
+                    </form>
+                  </div>
+                </div>
+              </div>
+
+}
+

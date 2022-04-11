@@ -1,0 +1,25 @@
+﻿@using X.PagedList
+@using X.PagedList.Mvc.Core
+@model IPagedList<EntityLayer.Concrete.BlogPost>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_BlogLayout.cshtml";
+}
+                 @foreach(var item in Model){
+
+                    <div class="post-preview">
+                        <a href="/Blog/Blog/Post/@item.id"><h2 class="post-title">@item.Header</h2></a>
+                        <p class="post-meta">
+                           
+                            <a href="/Default/Index/">@item.WriterName</a> tarafından
+                             @(((DateTime)item.Date).ToString("dd-MMM-yyyy")) tarihinde yayınlandı.
+                        </p>
+                    </div>
+               
+                    <hr class="my-4" />
+
+                 }
+                 
+                 @Html.PagedListPager((IPagedList)Model, page => Url.Action("Index", new {page}))
+         

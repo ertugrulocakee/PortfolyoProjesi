@@ -1,0 +1,18 @@
+﻿@model EntityLayer.Concrete.Message
+
+@{
+    ViewData["Title"] = "MessageDetails";
+    Layout = "~/Views/Shared/_NewAdminLayout.cshtml";
+}
+
+
+<div class="card text-muted bg-dark mb-xl-auto" @*style="max-width: 18rem;"*@>
+  <div class="card-header">Ad: @Model.Name / E-posta: @Model.Mail</div>
+  <div class="card-body">
+    <p class="card-text">@Model.Content</p>
+  </div>
+  <div class="card-footer text-muted">
+    @(((DateTime)Model.Date).ToString("dd-MMM-yyyy"))
+  </div>
+</div>
+

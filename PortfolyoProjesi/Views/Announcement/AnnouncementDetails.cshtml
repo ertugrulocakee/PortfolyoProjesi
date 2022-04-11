@@ -1,0 +1,17 @@
+﻿@model EntityLayer.Concrete.Announcement
+
+@{
+    ViewData["Title"] = "AnnouncementDetails";
+    Layout = "~/Views/Shared/_NewAdminLayout.cshtml";
+}
+
+<div class="card text-muted bg-dark mb-xl-auto" @*style="max-width: 18rem;"*@>
+  <div class="card-header">@Model.Title</div>
+  <div class="card-body">
+    <p class="card-text">@Model.Content</p>
+  </div>
+  <div class="card-footer text-muted">
+    @(((DateTime)Model.Date).ToString("dd-MMM-yyyy"))
+  </div>
+</div>
+

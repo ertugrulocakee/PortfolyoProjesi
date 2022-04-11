@@ -1,0 +1,42 @@
+﻿@model PortfolioProject.Areas.Writer.Models.WriterTestimonialViewModel
+
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_WriterLayout.cshtml";
+}
+
+
+@if (ViewBag.Message != null)
+{
+    <script type="text/javascript">
+        window.onload = function () {
+            alert('@ViewBag.Message');
+        };
+    </script>
+}
+
+
+<h1>Hadi Referans Ol...</h1>
+<br/>
+
+@using (Html.BeginForm("Index","WriterTestimonial",FormMethod.Post,new{ enctype = "multipart/form-data" })){
+
+   
+    <label>Referans Görseli</label>
+    @Html.TextBoxFor(x=>x.Image,new { type = "file"})
+    @Html.ValidationMessageFor(x=>x.Image,"",new {@class="text-danger"})
+    <br />
+     <label>Şirket</label>
+    @Html.TextBoxFor(x=>x.Company,new {@class="form-control"})
+    @Html.ValidationMessageFor(x=>x.Company,"",new {@class="text-danger"})
+    <br />
+     <label>Yorum</label>
+    @Html.TextAreaFor(x=>x.Comment,8,3,new {@class="form-control"})
+    @Html.ValidationMessageFor(x=>x.Comment,"",new {@class="text-danger"})
+    <br />
+
+  
+    <button class="btn btn-outline-success">Ekle</button>
+
+}

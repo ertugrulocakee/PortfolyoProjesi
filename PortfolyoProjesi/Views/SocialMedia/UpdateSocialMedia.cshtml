@@ -1,0 +1,48 @@
+﻿@model EntityLayer.Concrete.SocialMedia
+
+@{
+    ViewData["Title"] = "UpdateSocialMedia";
+    Layout = "~/Views/Shared/_NewAdminLayout.cshtml";
+}
+
+ @using (Html.BeginForm("UpdateSocialMedia","SocialMedia",FormMethod.Post)){
+
+    
+     <div class="col-12 grid-margin stretch-card">
+                <div class="card">
+                  <div class="card-body">
+                               
+                    <form class="forms-sample">
+                      <div class="form-group">
+                          @Html.HiddenFor(x=>x.SocialMediaID)
+                        <label>Ad</label>
+                        @Html.TextBoxFor(x=>x.Name,new {@class="form-control"})
+                       @Html.ValidationMessageFor(x=>x.Name,"",new {@class="text-danger"})
+                      </div>
+                      <div class="form-group">
+                        <label>Url</label>
+                         @Html.TextBoxFor(x=>x.Url,new {@class="form-control"})
+                       @Html.ValidationMessageFor(x=>x.Url,"",new {@class="text-danger"})
+                      </div>
+                      <div class="form-group">
+                        <label>Icon yolu</label>
+                        @Html.TextBoxFor(x=>x.Icon,new {@class="form-control"})
+                        @Html.ValidationMessageFor(x=>x.Icon,"",new {@class="text-danger"})
+                      </div>
+                      
+                     
+                      <button  class="btn btn-outline-success">Güncelle</button>
+                    
+                    </form>
+                  </div>
+                </div>
+              </div>
+
+
+    
+
+}
+
+
+          
+
