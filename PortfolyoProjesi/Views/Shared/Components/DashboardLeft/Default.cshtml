@@ -1,0 +1,215 @@
+﻿@Model List<String>
+
+  <ul class="nav">
+          <li class="nav-item profile">
+            <div class="profile-desc">
+              <div class="profile-pic">
+                 
+
+            @foreach(var item in Model){
+
+             <div class="count-indicator">
+             <img class="img-xs rounded-circle" src="/userimage/@item" alt="userimage" />     
+                  <span class="count bg-success"></span>
+                </div>
+                }
+             
+                <div class="profile-name">
+                  <h5 class="mb-0 font-weight-normal">Ertuğrul Ocak</h5>
+                  <span>Yönetici</span>
+                </div>
+              </div>
+              <a href="#" id="profile-dropdown" data-toggle="dropdown"><i class="mdi mdi-dots-vertical"></i></a>
+              <div class="dropdown-menu dropdown-menu-right sidebar-dropdown preview-list" aria-labelledby="profile-dropdown">
+                <a href="/Writer/Profile/Index/" class="dropdown-item preview-item">
+                  <div class="preview-thumbnail">
+                    <div class="preview-icon bg-dark rounded-circle">
+                      <i class="mdi mdi-settings text-primary"></i>
+                    </div>
+                  </div>
+                  <div class="preview-item-content">
+                    <p class="preview-subject ellipsis mb-1 text-small">Hesap ayarları</p>
+                  </div>
+                </a>
+                <div class="dropdown-divider"></div>
+                <a href="/Writer/Profile/PasswordChanger/" class="dropdown-item preview-item">
+                  <div class="preview-thumbnail">
+                    <div class="preview-icon bg-dark rounded-circle">
+                      <i class="mdi mdi-onepassword  text-info"></i>
+                    </div>
+                  </div>
+                  <div class="preview-item-content">
+                    <p class="preview-subject ellipsis mb-1 text-small">Şifreni Değiştir</p>
+                  </div>
+                </a>                               
+              </div>
+            </div>
+          </li>
+          <li class="nav-item nav-category">
+            <span class="nav-link">Menü</span>
+          </li>
+          <li class="nav-item menu-items">
+            <a class="nav-link" href="/Dashboard/Index/">
+              <span class="menu-icon">
+                <i class="mdi mdi-speedometer"></i>
+              </span>
+              <span class="menu-title">Dashboard</span>
+            </a>
+          </li>
+          <li class="nav-item menu-items">
+            <a class="nav-link"  href="/Skills/Index/">
+              <span class="menu-icon">
+                <i class="mdi mdi-laptop"></i>
+              </span>
+              <span class="menu-title">Yeteneklerim</span>
+            </a>       
+          </li>
+          <li class="nav-item menu-items">
+            <a class="nav-link" href="/Experience/Index/">
+              <span class="menu-icon">
+                <i class="mdi mdi-worker"></i>
+              </span>
+              <span class="menu-title">Deneyimlerim</span>
+            </a>
+          </li>
+        
+      
+          <li class="nav-item menu-items">
+            <a class="nav-link" href="/Service/Index/">
+              <span class="menu-icon">
+                <i class="mdi mdi-code-braces"></i>
+              </span>
+              <span class="menu-title">Hizmetler</span>
+            </a>
+          </li>
+
+             <li class="nav-item menu-items">
+            <a class="nav-link" href="/Portfolio/Index/">
+              <span class="menu-icon">
+                <i class="mdi mdi-github-circle"></i>
+              </span>
+              <span class="menu-title">Projeler</span>
+            </a>
+          </li>
+          <li class="nav-item menu-items">
+            <a class="nav-link" href="/Announcement/Index/">
+              <span class="menu-icon">
+                <i class="mdi mdi-alert"></i>
+              </span>
+              <span class="menu-title">Duyurular</span>
+            </a>
+          </li>
+            <li class="nav-item menu-items">
+            <a class="nav-link" data-toggle="collapse" href="#message" aria-expanded="false" aria-controls="auth">
+              <span class="menu-icon">
+                <i class="mdi mdi-comment"></i>
+              </span>
+              <span class="menu-title">Mesajlar</span>
+              <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="message">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item"> <a class="nav-link" href="/AdminMessage/ReceiverBox/"> Gelen Kutusu </a></li>
+                <li class="nav-item"> <a class="nav-link" href="/AdminMessage/SendBox/"> Giden Kutusu </a></li>
+                <li class="nav-item"> <a class="nav-link" href="/AdminMessage/AddSendMessage/"> Mesaj Gönder </a></li>
+              </ul>
+            </div>
+          </li>
+
+         <li class="nav-item menu-items">
+            <a class="nav-link" href="/Contact/Index/">
+              <span class="menu-icon">
+                <i class="mdi mdi-phone"></i>
+              </span>
+              <span class="menu-title">İletişim</span>
+            </a>
+          </li>
+
+            <li class="nav-item menu-items">
+            <a class="nav-link" href="/ContactInformation/Index/">
+              <span class="menu-icon">
+                <i class="mdi mdi-phone"></i>
+              </span>
+              <span class="menu-title">İletişim Bilgileri Düzenle</span>
+            </a>
+          </li>
+          <li class="nav-item menu-items">
+            <a class="nav-link" href="/SocialMedia/Index/">
+              <span class="menu-icon">
+                <i class="mdi mdi-linkedin"></i>
+              </span>
+              <span class="menu-title">Sosyal Medya</span>
+            </a>
+          </li>
+             <li class="nav-item menu-items">
+            <a class="nav-link" href="/About/Index/">
+              <span class="menu-icon">
+                <i class="mdi mdi-account-settings"></i>
+              </span>
+              <span class="menu-title">Hakkımdaki Bilgileri Düzenle</span>
+            </a>
+          </li>
+         <li class="nav-item menu-items">
+            <a class="nav-link" href="/Feature/Index/">
+              <span class="menu-icon">
+                <i class="mdi mdi-account-circle"></i>
+              </span>
+              <span class="menu-title">Öne Çıkanları Düzenle</span>
+            </a>
+          </li>
+           <li class="nav-item menu-items">
+            <a class="nav-link" href="/Testimonials/Index/">
+              <span class="menu-icon">
+                <i class="mdi mdi-account-multiple"></i>
+              </span>
+              <span class="menu-title">Referanslar</span>
+            </a>
+          </li>
+
+            <li class="nav-item menu-items">
+            <a class="nav-link" href="/Education/Index/">
+              <span class="menu-icon">
+                <i class="mdi mdi-school"></i>
+              </span>
+              <span class="menu-title">Eğitim</span>
+            </a>
+          </li>
+
+              <li class="nav-item menu-items">
+            <a class="nav-link" href="/BlogPost/Index/">
+              <span class="menu-icon">
+                <i class="mdi mdi-blogger"></i>
+              </span>
+              <span class="menu-title">Blog Yazıları</span>
+            </a>
+          </li>
+
+            <li class="nav-item menu-items">
+            <a class="nav-link" href="/Default/Index/">
+              <span class="menu-icon">
+                <i class="mdi mdi-home"></i>
+              </span>
+              <span class="menu-title">Ana Sayfaya Git</span>
+            </a>
+          </li>
+              <li class="nav-item menu-items">
+            <a class="nav-link" href="/Writer/Dashboard/Index/">
+              <span class="menu-icon">
+                <i class="mdi mdi-pencil"></i>
+              </span>
+              <span class="menu-title">Yazar Paneline Git</span>
+            </a>
+          </li>
+
+               <li class="nav-item menu-items">
+            <a class="nav-link" href="/Writer/Login/LogOut/">
+              <span class="menu-icon">
+                <i class="mdi mdi-power"></i>
+              </span>
+              <span class="menu-title">Çıkış Yap</span>
+            </a>
+          </li>
+       
+         
+        </ul>
+

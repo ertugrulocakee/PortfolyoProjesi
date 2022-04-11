@@ -1,0 +1,59 @@
+﻿@model PortfolioProject.Models.ExperienceViewModel
+
+
+@{
+    ViewData["Title"] = "AddExperience";
+    Layout = "~/Views/Shared/_NewAdminLayout.cshtml";
+}
+
+
+
+ <div class="col-12 grid-margin stretch-card">
+                <div class="card">
+                  <div class="card-body">
+
+
+
+@using (Html.BeginForm("AddExperience","Experience",FormMethod.Post, new{ enctype = "multipart/form-data" })){
+
+    
+    
+                                    
+                    <div class="form-group">
+                      <label>Deneyim Adı</label>
+                      @Html.TextBoxFor(m=>m.Name,new {@class="form-control"}) 
+                      @Html.ValidationMessageFor(m=>m.Name,"",new {@class="text-danger"})
+                    </div>
+                    <div class="form-group">
+                      <label>Deneyim Zamanı</label>
+                      @Html.TextBoxFor(m=>m.Date,new {@class="form-control"}) 
+                      @Html.ValidationMessageFor(m=>m.Date,"",new {@class="text-danger"})
+
+                    </div>
+
+                       <div class="form-group">
+                      <label>Deneyim Açıklaması</label>
+                                          
+                       @Html.TextAreaFor(m=>m.Description,6,3,new { @class="form-control"})
+                       @Html.ValidationMessageFor(m=>m.Description,"",new { @class="text-danger"})
+                    </div>
+
+                    
+                                     
+                    <div class="form-group">
+                      <label>Resim Seç</label>
+                       @Html.TextBoxFor(m => m.Picture, new { type = "file" })
+                       @Html.ValidationMessageFor(m => m.Picture,"",new {@class="text-danger"})
+            
+                    </div>
+             
+
+                      <button  class="btn btn-outline-success">Kaydet</button>
+            
+
+ }
+
+                    </div>
+                </div>
+              </div>
+

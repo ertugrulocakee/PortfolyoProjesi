@@ -1,0 +1,59 @@
+﻿@model PortfolioProject.Models.BlogPostViewModel
+
+
+@{
+    ViewData["Title"] = "AddBlogPost";
+    Layout = "~/Views/Shared/_NewAdminLayout.cshtml";
+}
+
+<div class="col-12 grid-margin stretch-card">
+                <div class="card">
+                  <div class="card-body">
+
+
+
+@using (Html.BeginForm("AddBlogPost","BlogPost",FormMethod.Post, new{ enctype = "multipart/form-data" })){
+
+                 
+                                    
+                    <div class="form-group">
+                      <label>Blog Paylaşımı Başlığı</label>
+                      @Html.TextBoxFor(m=>m.Header,new {@class="form-control"}) 
+                      @Html.ValidationMessageFor(m=>m.Header,"",new {@class="text-danger"})
+                    </div>
+
+                    <div class="form-group">
+                      <label>Blog Paylaşımı Konusu</label>
+                      @Html.TextBoxFor(m=>m.Title,new {@class="form-control"}) 
+                      @Html.ValidationMessageFor(m=>m.Title,"",new {@class="text-danger"})
+
+                    </div>
+
+                       <div class="form-group">
+                      <label>Blog Paylaşımı İçeriği</label>
+                                          
+                       @Html.TextAreaFor(m=>m.PostContent,10,6,new { @class="form-control"})
+                       @Html.ValidationMessageFor(m=>m.PostContent,"",new { @class="text-danger"})
+                    </div>
+
+                    
+                                     
+                    <div class="form-group">
+                      <label>Resim Seç</label>
+                       @Html.TextBoxFor(m => m.Image, new { type = "file" })
+                       @Html.ValidationMessageFor(m => m.Image,"",new {@class="text-danger"})
+            
+                    </div>
+             
+
+                      <button  class="btn btn-outline-success">Kaydet</button>
+            
+
+ }
+
+                    </div>
+                </div>
+              </div>
+
+
+

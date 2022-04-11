@@ -1,0 +1,49 @@
+﻿@model EntityLayer.Concrete.WriterMessage
+
+@{
+    ViewData["Title"] = "AddSendMessage";
+    Layout = "~/Views/Shared/_NewAdminLayout.cshtml";
+}
+
+@if (ViewBag.Message != null)
+{
+    <script type="text/javascript">
+        window.onload = function () {
+            alert('@ViewBag.Message');
+        };
+    </script>
+}
+
+
+     <div class="col-12 grid-margin stretch-card">
+                <div class="card">
+                  <div class="card-body">
+
+@using (Html.BeginForm("AddSendMessage","AdminMessage",FormMethod.Post)){
+
+    
+    @Html.Label("Alıcının E-posta Adresi")
+    @Html.TextBoxFor(m=>m.Receiver,new { @class = "form-control" })
+    @Html.ValidationMessageFor(m=>m.Receiver,"",new {@class="text-danger"})
+    <br/>
+    @Html.Label("Mesaj Başlığı")
+    @Html.TextBoxFor(m=>m.Subject,new { @class = "form-control" })
+    @Html.ValidationMessageFor(m=>m.Subject,"",new {@class="text-danger"})
+    <br/>
+    @Html.Label("Mesaj İçeriği")
+    @Html.TextAreaFor(m=>m.MessageContent,10,6,new { @class = "form-control" })
+     @Html.ValidationMessageFor(m=>m.MessageContent,"",new {@class="text-danger"})
+    <br/>
+    <button class="btn btn-outline-success">Gönder</button>
+      
+                   
+                 
+              
+
+
+  
+            }
+
+                      </div>
+                </div>
+              </div>

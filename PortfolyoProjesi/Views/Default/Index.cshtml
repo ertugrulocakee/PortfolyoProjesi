@@ -1,0 +1,107 @@
+﻿@using EntityLayer.Concrete
+@model List<Message>
+
+@{
+    Layout = null;
+}
+
+
+<!DOCTYPE html>
+<!-- upto 2 directory depth-->
+<html lang="en-US">
+ 
+  @await Html.PartialAsync("HeaderPartial")
+  <body id="top">
+  
+      @await Html.PartialAsync("NavbarPartial")      
+
+    <div class="page-content">
+      <div id="content">
+          
+      @await Component.InvokeAsync("FeatureList")
+
+      @await Component.InvokeAsync("AboutList")
+
+      @await Component.InvokeAsync("ServiceList")
+
+      @await Component.InvokeAsync("SkillsList")
+
+      @await Component.InvokeAsync("PortfolioList")
+
+      @await Component.InvokeAsync("ExperienceList")
+
+      @await Component.InvokeAsync("EducationList")
+
+      @await Component.InvokeAsync("TestimonialList")
+
+      
+  <div class="section px-2 px-lg-4 pb-4 pt-5 mb-5" id="contact">
+  <div class="container-narrow">
+    <div class="text-center mb-5">
+      <h2 class="marker marker-center">İletişim</h2>
+    </div>
+    <div class="row">
+  
+        <div class="col-md-6" data-aos="zoom-in" data-aos-delay="100">
+        <div class="bg-light my-2 p-3 pt-2"><form action="/Default/Index/" method="post">
+    <div class="form-group my-2">
+      <label for="name" class="form-label fw-bolder">Adınız</label>
+      <input class="form-control" type="text" id="name" name="Name" required>
+    </div>
+    <div class="form-group my-2">
+      <label for="email" class="form-label fw-bolder">E-posta adresiniz</label>
+      <input class="form-control" type="email" id="email" name="Mail" required>
+    </div>
+  <div class="form-group my-2">
+    <label for="message" class="form-label fw-bolder">Mesajınız</label>
+    <textarea class="form-control" style="resize: none;" id="message" name="Content" rows="4" required></textarea>
+  </div>
+  <button class="btn btn-primary mt-2" type="submit">Gönder</button>
+</form>
+ </div>
+</div>
+ 
+
+        @await Component.InvokeAsync("ContactDetails")
+
+    </div>
+  </div>
+</div>
+<footer class="pt-4 pb-4 text-center bg-light">
+  <div class="container">
+    <div class="my-3">
+      <div class="h4">Ertuğrul Ocak</div>
+      <p>Mühendis-Yazılım Geliştirici</p>
+      <div class="social-nav">
+        <nav role="navigation">
+          <ul class="nav justify-content-center">
+           
+          <li class="nav-item"><a class="nav-link" href="https://www.github.com/ertugrulocakee" title="GitHub"><i class="fab fa-github"></i><span class="menu-title sr-only">GitHub</span></a></li>
+          <li class="nav-item"><a class="nav-link" href="https://tr.linkedin.com/in/ertu%C4%9Frul-ocak-012053152" title="LinkedIn"><i class="fab fa-linkedin"></i><span class="menu-title sr-only">LinkedIn</span></a></li>
+                 
+
+          </ul>
+        </nav>
+      </div>
+    </div>
+    <div class="text-small text-secondary">
+      <div class="mb-1">&copy; @DateTime.Now.Year Ertuğrul Ocak. Tüm hakları saklıdır.</div>
+      <div>
+        <!-- Make sure to buy a license for the template before removing the line below. Buy license on https://templateflip.com/ -->Design - <a href="https://templateflip.com/" target="_blank">TemplateFlip</a></div>
+    </div>
+  </div>
+</footer></div>
+    </div>
+    <div id="scrolltop"><a class="btn btn-secondary" href="#top"><span class="icon"><i class="fas fa-angle-up fa-x"></i></span></a></div>
+    <script src="~/Template/scripts/imagesloaded.pkgd.min.js?ver=1.2.0"></script>
+    <script src="~/Template/scripts/masonry.pkgd.min.js?ver=1.2.0"></script>
+    <script src="~/Template/scripts/BigPicture.min.js?ver=1.2.0"></script>
+    <script src="~/Template/scripts/purecounter.min.js?ver=1.2.0"></script>
+    <script src="~/Template/scripts/bootstrap.bundle.min.js?ver=1.2.0"></script>
+    <script src="~/Template/scripts/aos.min.js?ver=1.2.0"></script>
+    <script src="~/Template/scripts/main.js?ver=1.2.0"></script>
+ 
+
+  </body>
+</html>
+

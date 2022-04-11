@@ -1,0 +1,217 @@
+﻿@using EntityLayer.Concrete
+@model List<Experience>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_NewAdminLayout.cshtml";
+}
+
+
+<div class="col-md-6">
+    <div class="p-2">
+        <button type="button" id="getlistall" class="btn btn-outline-primary"> Verileri Getir </button>
+        <button type="button" id="btnadd" class="btn btn-outline-info"> Kaydet </button>
+        <button type="button" id="btnbyid" class="btn btn-outline-info"> idye göre deneyimi getir </button>
+        <button type="button" id="btndeleteid" class="btn btn-outline-danger"> Seçileni Sir </button>
+
+    </div>
+</div>
+
+<h4 class="text-center">Deneyim Listesi</h4>
+
+<div class="p-2" id= "listexperience">
+    
+
+   
+</div>
+
+<br/>
+
+<div class="p-2" id= "listexperiencebyid">
+    
+
+   
+</div>
+
+<br/>
+
+
+<div class="col-md-12">
+
+    <h1>Ekleme Paneli</h1>
+    <input type="text" class="form-control" id="inpName" placeholder="dENEYİM" />
+    <br/>
+    
+    <input type="text" class="form-control" id="inpDate" placeholder="yİL" />
+    <br/>
+
+   
+    <br/>
+
+</div>
+
+<div class="col-md-12">
+
+    <h1>Idye göre veri getirme Paneli</h1>
+    <input type="text" class="form-control" id="inpID" placeholder="ID" />
+    <br/>
+    
+  
+
+</div>
+
+<div class="col-md-12">
+
+    <h1>Idye göre silme Paneli</h1>
+    <input type="text" class="form-control" id="inpexpID" placeholder="ID" />
+    <br/>
+    
+  
+
+</div>
+
+
+@section scripts
+{
+
+    <script>
+    
+    
+     $("#getlistall").click(function(){
+
+         $.ajax({
+
+             contentType: "application/json",
+             dataType: "json",
+             type:"Get",
+             url:"/Experience2/ListExperience/",
+
+
+             success : function(funk){
+
+                 let values = jQuery.parseJSON(funk);
+                 console.log(values);
+
+                 let htmlst = "<table class=table table-bordered> <tr> <th> ID </th> <th> Başlık </th> <th>Tarih</th> </tr>";
+
+                 $.each(values,(index,value) => {
+
+                     htmlst += `<tr><td>${value.ExperienceID}</td><td>${value.Name}</td><td>${value.Date}</td></tr>`
+
+                 }
+                                                                    
+                 );
+
+                 htmlst += "</table>";
+
+                 $("#listexperience").html(htmlst);
+
+             }
+
+         }); }); 
+         
+         
+        
+         
+         
+      $("#btnadd").click(function(){ 
+      
+      
+       let values = {
+
+           Name: $("#inpName").val(),
+           Date: $("#inpDate").val()
+
+
+       };
+      
+      $.ajax({
+
+
+
+          type:"Post",
+          url:"/Experience2/AddExperience/",
+          data:values,
+          success : function(funkadd){
+
+
+              let result = jQuery.parseJSON(funkadd);
+              alert(result.Name + " başarılı bir şekilde eklendi.");
+
+          }
+
+
+      });
+      
+      
+      
+      });
+
+        $("#btnbyid").click(x=>{
+
+            let id=$("#inpID").val();
+
+
+
+            $.ajax({
+
+                contentType: "application/json",
+                dataType: "json",
+                type: "Get",
+                url: "/Experience2/GetById/",
+                data:{ExperienceID:id},
+                success: function(funkid){
+
+                    let result = jQuery.parseJSON(funkid);
+
+                    console.log(result);
+
+                    let htmlst2 =  `<table class=table table-bordered> <tr> <th> ID </th> <th> Başlık </th> <th>Tarih</th> </tr>  <tr><td>${result.ExperienceID}</td><td>${result.Name}</td><td>${result.Date}</td></tr>`;
+
+                                                                    
+                 ;
+
+                 htmlst2 += "</table>";
+
+                 $("#listexperiencebyid").html(htmlst2);
+
+                }
+
+            });
+
+
+        });
+      
+
+
+        $("#btndeleteid").click(x=>{
+
+
+            let id = $("#inpexpID").val();
+            $.ajax({
+
+
+                url:"/Experience2/DeleteExperience/" +id,
+                type:"Post",
+                contentType:"application/json",
+                dataType:"json",
+                success:function(funkdelete){
+
+                    loadData();
+
+
+                }
+
+            });
+
+        });
+         
+         
+         </script>
+
+      
+
+}
+
+ <script src = "~/lib/jquery/dist/jquery.js"></script>
+

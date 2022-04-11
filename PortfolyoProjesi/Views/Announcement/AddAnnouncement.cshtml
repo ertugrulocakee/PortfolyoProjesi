@@ -1,0 +1,36 @@
+﻿@model EntityLayer.Concrete.Announcement
+
+@{
+    ViewData["Title"] = "AddAnnouncment";
+    Layout = "~/Views/Shared/_NewAdminLayout.cshtml";
+}
+
+<div class="col-12 grid-margin stretch-card">
+                <div class="card">
+                  <div class="card-body">
+
+
+@using (Html.BeginForm("AddAnnouncement", "Announcement", FormMethod.Post))
+{
+    
+
+    <label>Duyuru Başlığı</label>   
+    @Html.TextBoxFor(x=>x.Title,new {@class="form-control"})
+    @Html.ValidationMessageFor(x=>x.Title,"",new {@class="text-danger"})
+    <br />
+    <label>Duyuru İçeriği</label>   
+     @Html.TextBoxFor(m => m.Content,new {@class="form-control"})
+    @Html.ValidationMessageFor(x=>x.Content,"",new {@class="text-danger"})
+    <br />
+    <label>Duyuru Türü</label>
+    @Html.DropDownListFor(m => m.status, (List<SelectListItem>)ViewBag.types, new { @class = "form-control" })
+    
+    <br />
+    
+     <button class="btn btn-outline-success">Kaydet</button>
+
+}
+
+      </div>
+    </div>
+</div>

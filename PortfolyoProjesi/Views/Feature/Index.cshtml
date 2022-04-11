@@ -1,0 +1,48 @@
+﻿@model EntityLayer.Concrete.Feature
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_NewAdminLayout.cshtml";
+}
+
+@if (ViewBag.Message != null)
+{
+    <script type="text/javascript">
+        window.onload = function () {
+            alert('@ViewBag.Message');
+        };
+    </script>
+}
+
+
+<div class="col-12 grid-margin stretch-card">
+                <div class="card">
+                  <div class="card-body">
+
+@using (Html.BeginForm("Index","Feature",FormMethod.Post)){
+
+    @Html.HiddenFor(x=>x.FeatureID)
+    <br />
+    <label>Başlık</label>   
+    @Html.TextBoxFor(x=>x.Header,new {@class="form-control"})
+    @Html.ValidationMessageFor(x=>x.Header,"",new {@class="text-danger"})
+    <br />
+    <label>Ad-Soyad</label>   
+    @Html.TextBoxFor(x=>x.Name,new {@class="form-control"})
+    @Html.ValidationMessageFor(x=>x.Name,"",new {@class="text-danger"})
+    <br />
+    <label>Pozisyon</label>
+    @Html.TextBoxFor(x=>x.Title,new {@class="form-control"})
+    @Html.ValidationMessageFor(x=>x.Title,"",new {@class="text-danger"})
+    <br />
+    
+
+    <button class="btn btn-outline-success">Güncelle</button>
+
+}
+
+
+                    </div>
+                </div>
+              </div>
+

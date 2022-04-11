@@ -1,0 +1,18 @@
+﻿@model PortfolioProject.Areas.Writer.Models.UserEditViewModel
+
+@{
+    ViewData["Title"] = "UserDetails";
+    Layout = "~/Views/Shared/_WriterLayout.cshtml";
+}
+
+
+<div class="card text-dark bg-light mb-xl-auto" @*style="max-width: 18rem;"*@>
+  <div class="card-header">Ad-Soyad: @Model.Name @Model.SurName<br/>Kullanıcı Adı: @Model.UserName</div>
+  <div class="card-body" style="text-align:center">
+    <p class="card-text"><img src = "/userimage/@Model.PictureURL" width="400" height="200" alt="user"></p>
+  </div>
+  <div class="card-footer text-muted">
+    E-posta: @Model.UserMail
+  </div>
+</div>
+

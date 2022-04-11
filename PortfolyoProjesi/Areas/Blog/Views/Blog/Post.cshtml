@@ -1,0 +1,17 @@
+﻿@model EntityLayer.Concrete.BlogPost
+
+@{
+    ViewData["Title"] = "Post";
+    Layout = "~/Views/Shared/_BlogLayout.cshtml";
+}
+
+ <article class="mb-4">
+      <div style="text-align:center">
+          <h2 class="section-heading">@Model.Title</h2>
+          <br/>
+          <br/>
+          <img class="img-fluid" src="/blogpostimage/@Model.PostImageUrl" alt="..." /> </div>
+          <p>@Model.PostContent</p>
+                        
+        </article>
+

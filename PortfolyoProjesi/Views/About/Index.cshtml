@@ -1,0 +1,65 @@
+﻿@model PortfolioProject.Models.AboutViewModel
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_NewAdminLayout.cshtml";
+}
+
+@if (ViewBag.Message != null)
+{
+    <script type="text/javascript">
+        window.onload = function () {
+            alert('@ViewBag.Message');
+        };
+    </script>
+}
+
+   <div class="col-12 grid-margin stretch-card">
+                <div class="card">
+                  <div class="card-body">
+
+
+@using (Html.BeginForm("Index","About",FormMethod.Post,new{ enctype = "multipart/form-data" })){
+
+ 
+                    
+    @Html.HiddenFor(x=>x.Id)
+    <br />
+    <label>Başlık</label>   
+    @Html.TextAreaFor(x=>x.Title,10,2,new {@class="form-control"})
+    @Html.ValidationMessageFor(x=>x.Title,"",new {@class="text-danger"})
+    <br />
+    <label>Açıklama</label>   
+    @Html.TextBoxFor(x=>x.Description,new {@class="form-control"})
+    @Html.ValidationMessageFor(x=>x.Description,"",new {@class="text-danger"})
+    <br />
+    <label>Yaş</label>
+    @Html.TextBoxFor(x=>x.Age,new {@class="form-control"})
+    @Html.ValidationMessageFor(x=>x.Age,"",new {@class="text-danger"})
+    <br />
+    <label>Telefon</label>
+    @Html.TextBoxFor(x=>x.Phone,new {@class="form-control"})
+    @Html.ValidationMessageFor(x=>x.Phone,"",new {@class="text-danger"})
+    <br />
+    <label>E-posta</label>
+    @Html.TextBoxFor(x=>x.Mail,new {@class="form-control"})
+    @Html.ValidationMessageFor(x=>x.Mail,"",new {@class="text-danger"})
+    <br />
+    <label>Adres</label>
+    @Html.TextBoxFor(x=>x.Address,new {@class="form-control"})
+    @Html.ValidationMessageFor(x=>x.Address,"",new {@class="text-danger"})
+    <br/>
+    <label>Resim</label>
+    @Html.TextBoxFor(x=>x.Image, new { type = "file" })
+    @Html.ValidationMessageFor(x=>x.Image,"",new {@class="text-danger"})
+    <br/>
+
+
+                      
+    <button class="btn btn-outline-success">Kaydet</button>
+  
+  }
+                 
+                  </div>
+                </div>
+              </div>
