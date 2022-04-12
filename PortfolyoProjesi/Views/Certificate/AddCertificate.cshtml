@@ -1,0 +1,43 @@
+﻿@model PortfolioProject.Models.CertificateViewModel
+
+@{
+    ViewData["Title"] = "AddCertificate";
+    Layout = "~/Views/Shared/_NewAdminLayout.cshtml";
+}
+
+
+<div class="col-12 grid-margin stretch-card">
+                <div class="card">
+                  <div class="card-body">
+
+
+
+@using (Html.BeginForm("AddCertificate","Certificate",FormMethod.Post, new{ enctype = "multipart/form-data" })){
+
+    
+    
+                                    
+                    <div class="form-group">
+                      <label>Sertifika Adı</label>
+                      @Html.TextBoxFor(m=>m.CertificateName,new {@class="form-control"}) 
+                      @Html.ValidationMessageFor(m=>m.CertificateName,"",new {@class="text-danger"})
+                    </div>
+               
+                                          
+                    <div class="form-group">
+                      <label>Pdf Seç</label>
+                       @Html.TextBoxFor(m => m.CertificatePdf, new { type = "file" })
+                       @Html.ValidationMessageFor(m => m.CertificatePdf,"",new {@class="text-danger"})
+            
+                    </div>
+             
+
+                      <button  class="btn btn-outline-success">Kaydet</button>
+            
+
+ }
+
+                    </div>
+                </div>
+              </div>
+

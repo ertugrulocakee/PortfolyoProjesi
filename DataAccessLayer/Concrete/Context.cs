@@ -49,7 +49,7 @@ namespace DataAccessLayer.Concrete
 
         public DbSet<BlogPost> BlogPosts { get; set; }  
 
-        
+        public DbSet<Certificate> Certificates { get; set; } 
 
 
     }
