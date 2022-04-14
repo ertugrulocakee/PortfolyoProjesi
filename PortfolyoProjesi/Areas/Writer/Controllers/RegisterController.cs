@@ -35,6 +35,12 @@ namespace PortfolioProject.Areas.Writer.Controllers
         [HttpPost]
         public async Task<IActionResult> Index(UserRegisterViewModel register)
         {
+
+            string[] validFileTypes = { "gif", "jpg", "png" };
+            bool isValidType = false;
+
+
+
             if (ModelState.IsValid)
             {
 
@@ -45,7 +51,7 @@ namespace PortfolioProject.Areas.Writer.Controllers
                 users = users.Where(x => x.UserName == register.UserName || x.Email == register.Mail).ToList();
 
 
-                if (!users.Any())
+                if (users.Any())
                 {
 
                     ViewBag.Message = "E-posta adresiniz ve Kullanici adiniz benzersiz olmalidir!";
@@ -55,6 +61,23 @@ namespace PortfolioProject.Areas.Writer.Controllers
 
                 var resource = Directory.GetCurrentDirectory();
                 var extension = Path.GetExtension(register.Picture.FileName);
+
+                for (int i = 0; i < validFileTypes.Length; i++)
+                {
+                    if (extension == "." + validFileTypes[i])
+                    {
+                        isValidType = true;
+                        break;
+                    }
+                }
+
+                if (!isValidType)
+                {
+                    ViewBag.Message = "Lutfen png,jpg ve gif dosyasi yukleyin!";
+                    return View();
+                }
+
+
                 var imagename = Guid.NewGuid() + extension;
                 var saveLocation = resource + "/wwwroot/userimage/" + imagename;
                 var stream = new FileStream(saveLocation, FileMode.Create);

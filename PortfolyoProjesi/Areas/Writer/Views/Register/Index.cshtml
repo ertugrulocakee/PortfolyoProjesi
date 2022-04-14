@@ -4,6 +4,15 @@
     Layout = null;
 }
 
+@if (ViewBag.Message != null)
+{
+    <script type="text/javascript">
+        window.onload = function () {
+            alert('@ViewBag.Message');
+        };
+    </script>
+}
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -92,7 +101,7 @@
                   </div>
 
                 <div class="mt-3">
-                    <button class="btn-success">Kayıt Ol</button>
+                    <button class="btn btn-success">Kayıt Ol</button>
                
                 </div>
               </form>

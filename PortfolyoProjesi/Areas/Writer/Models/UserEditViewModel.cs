@@ -5,6 +5,8 @@ namespace PortfolioProject.Areas.Writer.Models
 {
     public class UserEditViewModel
     {
+
+       
         [Required]
         [MaxLength(30,ErrorMessage ="Ad en fazla 30 karaktere sahip olmalıdır!")]
         public string Name { get; set; }

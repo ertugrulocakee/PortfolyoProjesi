@@ -35,6 +35,7 @@ namespace PortfolioProject.Areas.Writer.Controllers
             model.PictureURL = values.ImageURL;
             model.UserName = values.UserName;
             model.UserMail = values.Email;
+           
             return View(model);
         }
 
@@ -47,12 +48,12 @@ namespace PortfolioProject.Areas.Writer.Controllers
 
                 WriterManager writerUserManager = new WriterManager(new EFWriterDAL());
 
-                var users = writerUserManager.TGetList();
+                var values = await _userManager.FindByNameAsync(User.Identity.Name);
 
-                users = users.Where(x => x.UserName == userEditViewModel.UserName || x.Email == userEditViewModel.UserMail).ToList();
+                var users = writerUserManager.TGetList().Where(x=> x.Id != values.Id).Where(x => x.UserName == userEditViewModel.UserName || x.Email == userEditViewModel.UserMail).ToList();
 
 
-                if (!users.Any())
+                if (users.Any())
                 {
 
                     ViewBag.Message = "E-posta adresiniz ve Kullanici adiniz benzersiz olmalidir!";
@@ -73,8 +74,28 @@ namespace PortfolioProject.Areas.Writer.Controllers
                 if (userEditViewModel.Picture != null)
                 {
 
+                    string[] validFileTypes = { "gif", "jpg", "png" };
+                    bool isValidType = false;
+
+
                     var resource = Directory.GetCurrentDirectory();
                     var extension = Path.GetExtension(userEditViewModel.Picture.FileName);
+
+                    for (int i = 0; i < validFileTypes.Length; i++)
+                    {
+                        if (extension == "." + validFileTypes[i])
+                        {
+                            isValidType = true;
+                            break;
+                        }
+                    }
+
+                    if (!isValidType)
+                    {
+                        ViewBag.Message = "Lutfen png,jpg ve gif dosyasi yukleyin!";
+                        return View();
+                    }
+
                     var imagename = Guid.NewGuid() + extension;
                     var saveLocation = resource + "/wwwroot/userimage/" + imagename;
                     var stream = new FileStream(saveLocation, FileMode.Create);
