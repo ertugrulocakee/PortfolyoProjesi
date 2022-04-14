@@ -16,3 +16,9 @@ IDENTITY,
 BOOTSTRAP,
 MSSQL
 
+![resumepanel](https://user-images.githubusercontent.com/83928393/163381294-dde88c96-e15b-428b-997f-85eaed70f0a6.png)
+![blogpanel](https://user-images.githubusercontent.com/83928393/163381296-2c744802-dbf6-4764-9ec2-899ccedae115.png)
+![writerregister](https://user-images.githubusercontent.com/83928393/163381299-c43172c9-495b-4713-8614-799284d7b067.png)
+![writerlogin](https://user-images.githubusercontent.com/83928393/163381301-e448c36c-f386-4a19-ab43-6f2d6960d08a.png)
+![writerpanel](https://user-images.githubusercontent.com/83928393/163381304-af8b6176-1fd0-4732-94e8-e4fac4db094c.png)
+![adminpanel](https://user-images.githubusercontent.com/83928393/163381313-133c359a-c592-4122-b843-6b9cc6e5f0b6.png)
