@@ -43,7 +43,14 @@
               </div>
               <div class="row mt-5">
                 <div class="col-12 text-center mt-xl-2">
-                  <a class="text-white font-weight-medium" href="/Writer/Dashboard/Index/">Ana Sayfaya Dön</a>
+                       @if (User.IsInRole("Writer"))
+                       {
+                           <a class="text-white font-weight-medium" href="/Writer/Dashboard/Index/">Ana Sayfaya Dön</a>
+                        }else{
+                                
+                         <a class="text-white font-weight-medium" href="/Default/Index/">Ana Sayfaya Dön</a>
+
+                      } 
                 </div>
               </div>
               <div class="row mt-5">

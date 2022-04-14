@@ -32,7 +32,7 @@ namespace PortfolioProject.Models
         [MaxLength(200,ErrorMessage ="Adres bilgisi maksimum 200 karakterden oluşabilir!")]
         public string Address { get; set; }
 
-       
+ 
         public IFormFile Image { get; set; }
 
 
