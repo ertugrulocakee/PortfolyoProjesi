@@ -117,6 +117,7 @@
     <ProjectReference Include="..\BusinessLayer\BusinessLayer.csproj" />
     <ProjectReference Include="..\DataAccessLayer\DataAccessLayer.csproj" />
     <ProjectReference Include="..\EntityLayer\EntityLayer.csproj" />
+    <ProjectReference Include="..\PortfolyoProjesiAPI\PortfolioProjectAPI.csproj" />
   </ItemGroup>
 
   <ItemGroup>

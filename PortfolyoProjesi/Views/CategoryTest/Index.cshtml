@@ -1,0 +1,46 @@
+﻿@using PortfolioProjectAPI.DAL.Entity
+@model List<Category>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_NewAdminLayout.cshtml";
+}
+
+ <div class="col-lg-12 grid-margin stretch-card">
+                <div class="card">
+                  <div class="card-body">
+                    <h4 class="card-title">Kategoriler</h4>
+                   
+                    <div class="table-responsive">
+                      <table class="table">
+                        <thead>
+                          <tr>
+                            <th>#</th>
+                            <th>Kategori</th>                            
+                            <th>Sil</th>
+                            <th>Güncelle</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                        
+                         @foreach (var item in Model)
+                         { 
+                            
+                         <tr>
+                            <td>@item.CategoryId</td>
+                            <td>@item.CategoryName</td>
+                            <td><a href="/CategoryTest/DeleteCategory/@item.CategoryId" class="btn btn-outline-danger">Sil</a></td>
+                            <td><a href="/CategoryTest/UpdateCategory/@item.CategoryId" class="btn btn-outline-success">Güncelle</a></td> 
+                          </tr>
+
+                         }
+                          
+                        </tbody>
+                      </table>
+                      <a href="/CategoryTest/AddCategory/" class="btn btn-outline-info">Yeni Kategori Ekle</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+ 
+
