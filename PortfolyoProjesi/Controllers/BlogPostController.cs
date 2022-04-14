@@ -60,13 +60,30 @@ namespace PortfolioProject.Controllers
         public async Task<IActionResult> AddBlogPost(BlogPostViewModel blogPostViewModel)
         {
 
-            
+            string[] validFileTypes = { "gif", "jpg", "png" };
+            bool isValidType = false;
 
             if (ModelState.IsValid)
             {
 
                 var resource = Directory.GetCurrentDirectory();
                 var extension = Path.GetExtension(blogPostViewModel.Image.FileName);
+
+                for (int i = 0; i < validFileTypes.Length; i++)
+                {
+                    if (extension == "." + validFileTypes[i])
+                    {
+                        isValidType = true;
+                        break;
+                    }
+                }
+
+                if (!isValidType)
+                {
+                    ViewBag.Message = "Lutfen png,jpg ve gif dosyasi yukleyin!";
+                    return View();
+                }
+
                 var imagename = Guid.NewGuid() + extension;
                 var saveLocation = resource + "/wwwroot/blogpostimage/" + imagename;
                 var stream = new FileStream(saveLocation, FileMode.Create);

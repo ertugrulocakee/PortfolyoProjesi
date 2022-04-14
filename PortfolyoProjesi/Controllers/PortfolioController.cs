@@ -40,6 +40,11 @@ namespace PortfolioProject.Controllers
         public async Task<IActionResult> AddPortfolio(PortfolioViewModel portfolioViewModel)
         {
 
+            string[] validFileTypes = { "gif", "jpg", "png" };
+            bool isValidTypeOne = false;
+            bool isValidTypeTwo = false;    
+            bool isValidTypeThree = false; 
+
 
             if (ModelState.IsValid)
             {
@@ -47,6 +52,23 @@ namespace PortfolioProject.Controllers
 
                 var resource = Directory.GetCurrentDirectory();
                 var extension = Path.GetExtension(portfolioViewModel.Image.FileName);
+
+                for (int i = 0; i < validFileTypes.Length; i++)
+                {
+                    if (extension == "." + validFileTypes[i])
+                    {
+                        isValidTypeOne = true;
+                        break;
+                    }
+                }
+
+                if (!isValidTypeOne)
+                {
+                    ViewBag.Message = "Lutfen png,jpg ve gif dosyasi yukleyin! (Proje Gorseli icin)";
+                    return View();
+                }
+
+
                 var imagenameImage = Guid.NewGuid() + extension;
                 var saveLocation = resource + "/wwwroot/portfolioimage/" + imagenameImage;
                 var stream = new FileStream(saveLocation, FileMode.Create);
@@ -54,6 +76,23 @@ namespace PortfolioProject.Controllers
 
                 resource = Directory.GetCurrentDirectory();
                 extension = Path.GetExtension(portfolioViewModel.BigImage.FileName);
+
+                for (int i = 0; i < validFileTypes.Length; i++)
+                {
+                    if (extension == "." + validFileTypes[i])
+                    {
+                        isValidTypeTwo = true;
+                        break;
+                    }
+                }
+
+                if (!isValidTypeTwo)
+                {
+                    ViewBag.Message = "Lutfen png,jpg ve gif dosyasi yukleyin! (Buyuk Gorsel icin)";
+                    return View();
+                }
+
+
                 var imagenameBigImage = Guid.NewGuid() + extension;
                 saveLocation = resource + "/wwwroot/portfolioimage/" + imagenameBigImage;
                 stream = new FileStream(saveLocation, FileMode.Create);
@@ -61,6 +100,22 @@ namespace PortfolioProject.Controllers
 
                 resource = Directory.GetCurrentDirectory();
                 extension = Path.GetExtension(portfolioViewModel.PlatformImage.FileName);
+
+                for (int i = 0; i < validFileTypes.Length; i++)
+                {
+                    if (extension == "." + validFileTypes[i])
+                    {
+                        isValidTypeThree = true;
+                        break;
+                    }
+                }
+
+                if (!isValidTypeThree)
+                {
+                    ViewBag.Message = "Lutfen png,jpg ve gif dosyasi yukleyin! (Platform Gorseli icin)";
+                    return View();
+                }
+
                 var imagenamePlatformImage = Guid.NewGuid() + extension;
                 saveLocation = resource + "/wwwroot/portfolioimage/" + imagenamePlatformImage;
                 stream = new FileStream(saveLocation, FileMode.Create);

@@ -5,6 +5,15 @@
     Layout = "~/Views/Shared/_NewAdminLayout.cshtml";
 }
 
+@if (ViewBag.Message != null)
+{
+    <script type="text/javascript">
+        window.onload = function () {
+            alert('@ViewBag.Message');
+        };
+    </script>
+}
+
 
  <div class="col-12 grid-margin stretch-card">
        <div class="card">

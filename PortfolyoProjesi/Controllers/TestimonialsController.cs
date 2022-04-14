@@ -46,6 +46,8 @@ namespace PortfolioProject.Controllers
         [HttpPost]
         public async Task<IActionResult> AddTestimonial(TestimonialViewModel testimonialViewModel)
         {
+            string[] validFileTypes = { "gif", "jpg", "png" };
+            bool isValidType = false;
 
             if (ModelState.IsValid)
             {
@@ -53,6 +55,22 @@ namespace PortfolioProject.Controllers
 
                 var resource = Directory.GetCurrentDirectory();
                 var extension = Path.GetExtension(testimonialViewModel.Image.FileName);
+
+                for (int i = 0; i < validFileTypes.Length; i++)
+                {
+                    if (extension == "." + validFileTypes[i])
+                    {
+                        isValidType = true;
+                        break;
+                    }
+                }
+
+                if (!isValidType)
+                {
+                    ViewBag.Message = "Lutfen png,jpg ve gif dosyasi yukleyin!";
+                    return View();
+                }
+
                 var imagename = Guid.NewGuid() + extension;
                 var saveLocation = resource + "/wwwroot/testimonialimage/" + imagename;
                 var stream = new FileStream(saveLocation, FileMode.Create);

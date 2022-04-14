@@ -14,7 +14,7 @@ namespace PortfolioProject.Models
         [MaxLength(20, ErrorMessage = "Deneyimin zaman bilgisi maksimum 20 karakterden oluşabilir!")]
         public string Date { get; set; }
 
-        [Required(ErrorMessage ="Resim seçilmelidir!")]
+        [Required(ErrorMessage ="Resim seçilmelidir!")]  
         public IFormFile Picture { get; set; }
 
         [Required(ErrorMessage ="Deneyimin açıklaması boş bırakılamaz!")]

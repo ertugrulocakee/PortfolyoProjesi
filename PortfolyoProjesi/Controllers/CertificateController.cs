@@ -45,12 +45,31 @@ namespace PortfolioProject.Controllers
         [HttpPost]  
         public async  Task<IActionResult> AddCertificate(CertificateViewModel certificateViewModel)
         {
+            string[] validFileTypes = { "pdf" };
+            bool isValidType = false;
 
             if (ModelState.IsValid)
             {
 
                 var resource = Directory.GetCurrentDirectory();
                 var extension = Path.GetExtension(certificateViewModel.CertificatePdf.FileName);
+
+                for (int i = 0; i < validFileTypes.Length; i++)
+                {
+                    if (extension == "." + validFileTypes[i])
+                    {
+                        isValidType = true;
+                        break;
+                    }
+                }
+
+                if (!isValidType)
+                {
+                    ViewBag.Message = "Lutfen pdf dosyasi yukleyin!";
+                    return View();
+                }
+
+
                 var pdfname = Guid.NewGuid() + extension;
                 var saveLocation = resource + "/wwwroot/certificatepdf/" + pdfname;
                 var stream = new FileStream(saveLocation, FileMode.Create);
