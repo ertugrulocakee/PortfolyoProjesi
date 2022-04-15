@@ -12,8 +12,8 @@
         <button type="button" id="getlistall" class="btn btn-outline-primary"> Verileri Getir </button>
         <button type="button" id="btnadd" class="btn btn-outline-info"> Kaydet </button>
         <button type="button" id="btnbyid" class="btn btn-outline-info"> idye göre deneyimi getir </button>
-        <button type="button" id="btndeleteid" class="btn btn-outline-danger"> Seçileni Sir </button>
-
+        <button type="button" id="btndeleteid" class="btn btn-outline-danger"> Seçileni Sil </button>
+        <button type="button" id="btnupdate" class="btn btn-outline-success"> Seçileni Güncelle </button>
     </div>
 </div>
 
@@ -39,10 +39,28 @@
 <div class="col-md-12">
 
     <h1>Ekleme Paneli</h1>
-    <input type="text" class="form-control" id="inpName" placeholder="dENEYİM" />
+    <input type="text" class="form-control" id="inpName" placeholder="DENEYİM" />
     <br/>
     
-    <input type="text" class="form-control" id="inpDate" placeholder="yİL" />
+    <input type="text" class="form-control" id="inpDate" placeholder="YIL" />
+    <br/>
+
+   
+    <br/>
+
+</div>
+
+<div class="col-md-12">
+
+    <h1>Güncelleme Paneli</h1>
+
+     <input type="text" class="form-control" id="inpIDUpdate" placeholder="ID" />
+    <br/>
+
+    <input type="text" class="form-control" id="inpNameUpdate" placeholder="DENEYİM" />
+    <br/>
+    
+    <input type="text" class="form-control" id="inpDateUpdate" placeholder="YIL" />
     <br/>
 
    
@@ -201,6 +219,36 @@
 
 
                 }
+
+            });
+
+        });
+
+
+
+        $("#btnupdate").click(function(){
+
+            let experience = {
+
+                ExperienceID: $("#inpIDUpdate").val(),
+                Name: $("#inpNameUpdate").val(),
+                Date: $("#inpDateUpdate").val()
+
+            };
+
+            $.ajax({
+
+
+                type:"Post",
+                url:"/Experience2/UpdateExperience/",
+                data: experience,
+                success: function(funkUpdate){
+
+                    alert("Güncelleme yapıldı.");
+
+                }
+
+
 
             });
 

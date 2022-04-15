@@ -56,6 +56,22 @@ namespace PortfolioProject.Controllers
 
         }
 
+        public IActionResult UpdateExperience(Experience experience)
+        {
+
+            var v = experienceManager.TGetByID(experience.ExperienceID);
+
+            v.Name = experience.Name;
+            v.Date = experience.Date;
+
+            experienceManager.TUpdate(v);
+
+            var jsonExperience = JsonConvert.SerializeObject(v);
+
+            return Json(jsonExperience);
+
+        }
+
 
     }
 }
