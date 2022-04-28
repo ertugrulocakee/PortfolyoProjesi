@@ -5,10 +5,11 @@ using System.Net.Http;
 using System.Threading.Tasks;
 using PortfolioProjectAPI.DAL.Entity;
 using System.Text;
+using Microsoft.AspNetCore.Authorization;
 
 namespace PortfolioProject.Controllers
 {
-    
+    [Authorize(Roles = "Admin")]
     public class CategoryTestController : Controller
     {
         public async Task<IActionResult> Index()
