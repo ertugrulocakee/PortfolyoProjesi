@@ -10,7 +10,7 @@ Admin Paneli => Tüm uygulamayı bir panelden yönet!
 Kullanılan Teknolojiler
 
 * ASPNET MVC CORE 5.0 
-* MSSQL (Tetikleyiciler-İlişkisel veri tabanı-Jobs)
+* MSSQL (Tetikleyiciler-Prosedürler)
 * BOOTSTRAP
 * AJAX & jQuery (Proje içinde kullanılmadı. Proje dışında test etme-öğrenme amaçlı kullanıldı.)
 * API (Proje içinde kullanılmadı. Proje dışında test etme-öğrenme amaçlı kullanıldı.)
