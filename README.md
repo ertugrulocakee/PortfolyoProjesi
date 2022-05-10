@@ -1,4 +1,4 @@
-PortfolyoProjesi
+PortfolyoProjesi (Portfolio Project)
 
 Merhaba. Bu ikinci ASPNET MVC projem olup aynı zamanda ilk core projemdir. İlk projeye göre daha ileri konulara değinilmiştir. Proje Murat Yücedağ hocanın core kursundan esinlenerek oluşturuldu. Murat hoca temeli attı. Ondan temeli aldım ve sonrasında kendi yorumumu katarak projeyi istediğim seviyeye getirebildim. Proje yeni güncellemeler alabilir. Proje çok yakında canlıya alınabilir. Canlıya alınırsa repoda sitenin adresini de paylaşacağım. Proje esasında bir portfolyo projesidir ama ben bu portfolyo projesini olabildiğince konu olarak genişletmeye çalıştım. Ayrıyeten blog paneli, yazar paneli ve admin paneli içermektedir.
 
