@@ -9,12 +9,15 @@ Admin Paneli => Tüm uygulamayı bir panelden yönet!
 
 Kullanılan Teknolojiler
 
-ASPNET CORE MVC 5.0,
-ENTITY FRAMEWORK CORE CODE FIRST,
-N KATMANLI MİMARİ,
-IDENTITY,
-BOOTSTRAP,
-MSSQL
+* ASPNET MVC CORE 5.0 
+* MSSQL (Tetikleyiciler-İlişkisel veri tabanı-Jobs)
+* BOOTSTRAP
+* AJAX & jQuery (Proje içinde kullanılmadı. Proje dışında test etme-öğrenme amaçlı kullanıldı.)
+* API (Proje içinde kullanılmadı. Proje dışında test etme-öğrenme amaçlı kullanıldı.)
+* IDENTITY
+* ENTITY FRAMEWORK CORE 5.0 (CodeFirst Yaklaşımı ile)
+* C# Programlama Dili 
+* .NET
 
 ---Ekran Görüntüleri---
 
