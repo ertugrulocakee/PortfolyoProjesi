@@ -21,6 +21,8 @@ Kullanılan Teknolojiler
 * Repository Design Pattern
 * Fluent Validation
 * Rolleme
+* Area Kullanımı
+* Partial View && View Components
 
 Proje/Çalışma katmanlı mimaride geliştirildi. SOLID Prensiplerine dikkat edildi. MVC Yazılım Tasarım Deseni kullanıldı.
 
